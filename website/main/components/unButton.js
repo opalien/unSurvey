@@ -1,12 +1,21 @@
-import setCSS, * as utils from './utils.js';
+import setCSS from './utils.js';
 
 export default class UnButton extends HTMLElement {
+
     constructor(text, textColor, colors) {
         super();
+        // setting the colors
         this.color = colors.color1;
         this.hoverColor = colors.color2;
         this.inactiveColor = colors.color3;
 
+
+        this.innerText = text;
+        this.HPadding = '20px';
+        this.VPadding = '10px';
+
+
+        // setting functions
         this.function = function(){};
 
         this.mouseover = function() {
@@ -17,14 +26,6 @@ export default class UnButton extends HTMLElement {
             this.style.backgroundColor = this.color;
         }
 
-        this.addEventListener('mouseover', this.mouseover);
-        this.addEventListener('mouseout', this.mouseout);
-        this.addEventListener('click', this.function);
-
-        this.HPadding = '20px';
-        this.VPadding = '10px';
-
-        this.innerText = text;
 
         let css = {//position: 'relative',
                     paddingLeft: this.HPadding,
@@ -34,10 +35,11 @@ export default class UnButton extends HTMLElement {
                     backgroundColor: this.color,
                     color: textColor,
 
-                    transition: '1s', 
-                    cursor: 'pointer',}           
+                    transition: '.5s',
+                    cursor: 'pointer',}
 
         setCSS(this, css);
+        this.setActive(true);
     }
 
     setFunction(f) {
@@ -46,9 +48,8 @@ export default class UnButton extends HTMLElement {
         this.addEventListener('click', this.function);
     }
 
-
-    setActive(active) {
-        if(active) {
+    setActive(isActive) {
+        if(isActive) {
             this.addEventListener('click', this.function);
             this.addEventListener('mouseover', this.mouseover);
             this.addEventListener('mouseout', this.mouseout);

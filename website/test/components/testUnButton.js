@@ -11,6 +11,5 @@ function test1UnButton() {
     button.setFunction(function() { console.log("salut"); });
     button.id = 'idofsomethingreallystupid';
     document.body.appendChild(button);
-    button.setActive(true);
-    
+    //button.setActive(true);
 }
