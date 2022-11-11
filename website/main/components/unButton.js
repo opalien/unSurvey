@@ -1,4 +1,4 @@
-import setCSS from './utils.js';
+import setCSS from '../utils/utils.js';
 
 export default class UnButton extends HTMLElement {
 
@@ -36,7 +36,7 @@ export default class UnButton extends HTMLElement {
                     color: textColor,
 
                     transition: '.5s',
-                    cursor: 'pointer',}
+                    cursor: 'pointer',};
 
         setCSS(this, css);
         this.setActive(true);

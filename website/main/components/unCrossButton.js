@@ -1,9 +1,11 @@
-import setCSS from './utils.js';
+import setCSS from '../utils/utils.js';
 
 export default class UnCrossButton extends HTMLElement {
 
     constructor() {
         super();
+
+        this.function = function(){};
 
         let rightLine = document.createElement('div');
         let leftLine = document.createElement('div');
@@ -15,7 +17,7 @@ export default class UnCrossButton extends HTMLElement {
                             height: '5px',
                             backgroundColor: 'black',
                             transform: 'rotate(45deg)',
-                            borderRadius: '10px', }
+                            borderRadius: '10px', };
         
         let cssleftLine = {position: 'absolute',
                             top: '22px',
@@ -24,7 +26,7 @@ export default class UnCrossButton extends HTMLElement {
                             height: '5px',
                             backgroundColor: 'black',
                             transform: 'rotate(-45deg)',
-                            borderRadius: '10px', }
+                            borderRadius: '10px', };
         
         setCSS(rightLine, cssrightLine);
         setCSS(leftLine, cssleftLine);
@@ -38,10 +40,16 @@ export default class UnCrossButton extends HTMLElement {
                     height: '49px',
                     backgroundColor: 'rgba(0,0,0,.2)',
                     borderRadius: '10px',
-                    cursor: 'pointer',}
+                    cursor: 'pointer',};
 
         setCSS(this, css);
 
+    }
+
+    setFunction(f) {
+        this.removeEventListener('click', this.function);
+        this.function = f;
+        this.addEventListener('click', this.function);
     }
 
 }   
