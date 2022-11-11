@@ -47,6 +47,7 @@ export default class ErrorPopup extends HTMLElement {
 
         setCSS(this, css);
 
+        this.hide();
     }
 
     hide() {

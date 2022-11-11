@@ -9,5 +9,5 @@ function test1ErrorPopup() {
     errorPopup.id = 'idofsomethingreallystupid';
     document.body.appendChild(errorPopup);
 
-    errorPopup.showError("This is an error");
+    errorPopup.showError("This is an error for example !!!");
 }
