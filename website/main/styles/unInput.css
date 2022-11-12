@@ -1,0 +1,22 @@
+.clearInput {    
+    transition: .5s;
+
+    border: none;
+    background: #EEE;
+
+    
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 0px;
+
+    /*margin: 10px;*/
+}
+
+.clearInput:hover {
+    background: #CCC;
+}
+
+.clearInput:focus {
+    background: #CCC;
+}

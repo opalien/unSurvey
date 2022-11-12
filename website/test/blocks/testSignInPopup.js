@@ -6,6 +6,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function test1SignInPopup() {
     let signInPopup = new SignInPopup();
-    signInPopup.id = 'idofsomethingreallystupid';
+    signInPopup.setFunction(testSignInButton.bind());
+    
     document.body.appendChild(signInPopup);
+
+}
+
+function testSignInButton(name, password) {
+    console.log("name : " + name + " password : " + password);
 }

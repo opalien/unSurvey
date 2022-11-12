@@ -11,7 +11,7 @@ export default class ErrorPopup extends HTMLElement {
         this.closeButton.setFunction(this.hide.bind(this));
 
         let csscrossbutton = {position: 'absolute',
-                                top: '50px',
+                                top: '30px',
                                 right: '50px',};
 
         setCSS(this.closeButton, csscrossbutton);
@@ -21,7 +21,7 @@ export default class ErrorPopup extends HTMLElement {
         this.errorTitle = document.createElement('h1');
         this.errorTitle.innerText = 'Error :';
         let csserrorTitle = {position: 'absolute',
-                                top: '10px',
+                                bottom: '10px',
                                 left: '50px',
                                 color: 'white'};
         setCSS(this.errorTitle, csserrorTitle);
@@ -30,19 +30,21 @@ export default class ErrorPopup extends HTMLElement {
         this.errorText = document.createElement('h2');
         this.errorText.innerText = 'This is an error';
         let csserrorText = {position: 'absolute',
-                                top: '100px',
-                                left: '100px',
+                                bottom: '12px',
+                                left: '200px',
                                 color: 'white'};
         setCSS(this.errorText, csserrorText);
         this.appendChild(this.errorText);
 
         let css = {position: 'fixed',
                     bottom: '0px',
-                    left: '0px',
-                    right: '0px',
-                    height: '200px',
+                    left: '100px',
+                    right: '100px',
+                    height: '100px',
                     backgroundColor: 'red',
-                    borderRadius: '80px 80px 0px 0px',
+                    border: '3px solid black',
+                    borderBottom: 'none',
+                    //borderRadius: '80px 80px 0px 0px',
                     transition: '.5s',};      
 
         setCSS(this, css);
@@ -51,7 +53,7 @@ export default class ErrorPopup extends HTMLElement {
     }
 
     hide() {
-        setCSS(this, {bottom: '-200px'});
+        setCSS(this, {bottom: '-103px'});
     }
 
     showError(error) {

@@ -1,0 +1,39 @@
+/*.centerPopup {
+    position: fixed;
+
+    left: 40%;
+    min-width: 400px;
+    right: 40%;
+    top: 20%;
+
+
+    border: 3px;
+    border-color: black;
+
+
+    background-color: white;
+    border-style: solid;
+
+    padding: 30px;
+
+    text-align: center;
+
+    justify-content: center;
+}*/
+
+.centerPopupContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.centerPopup {
+    min-width: 400px;
+
+    background-color: white;
+    border: 3px solid black;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
