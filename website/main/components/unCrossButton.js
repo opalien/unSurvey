@@ -38,7 +38,7 @@ export default class UnCrossButton extends HTMLElement {
         let css = {position: 'absolute',
                     width: '48px',
                     height: '49px',
-                    backgroundColor: 'rgba(0,0,0,.2)',
+                    backgroundColor: 'rgba(255,255,255,.5)',
                     borderRadius: '10px',
                     cursor: 'pointer',};
 

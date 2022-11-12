@@ -41,7 +41,7 @@ export default class ErrorPopup extends HTMLElement {
                     left: '100px',
                     right: '100px',
                     height: '100px',
-                    backgroundColor: 'red',
+                    backgroundColor: '#BD4E41',
                     border: '3px solid black',
                     borderBottom: 'none',
                     //borderRadius: '80px 80px 0px 0px',
