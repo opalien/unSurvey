@@ -11,17 +11,17 @@ export default class ErrorPopup extends HTMLElement {
         this.closeButton.setFunction(this.hide.bind(this));
 
         let csscrossbutton = {position: 'absolute',
-                                top: '30px',
+                                top: '15px',
                                 right: '50px',};
 
         setCSS(this.closeButton, csscrossbutton);
 
         this.appendChild(this.closeButton);
 
-        this.errorTitle = document.createElement('h1');
+        this.errorTitle = document.createElement('h2');
         this.errorTitle.innerText = 'Error :';
         let csserrorTitle = {position: 'absolute',
-                                bottom: '10px',
+                                bottom: '0px',
                                 left: '50px',
                                 color: 'white'};
         setCSS(this.errorTitle, csserrorTitle);
@@ -30,7 +30,7 @@ export default class ErrorPopup extends HTMLElement {
         this.errorText = document.createElement('h2');
         this.errorText.innerText = 'This is an error';
         let csserrorText = {position: 'absolute',
-                                bottom: '12px',
+                                bottom: '0px',
                                 left: '200px',
                                 color: 'white'};
         setCSS(this.errorText, csserrorText);
@@ -40,11 +40,10 @@ export default class ErrorPopup extends HTMLElement {
                     bottom: '0px',
                     left: '100px',
                     right: '100px',
-                    height: '100px',
+                    height: '75px',
                     backgroundColor: '#BD4E41',
                     border: '3px solid black',
                     borderBottom: 'none',
-                    //borderRadius: '80px 80px 0px 0px',
                     transition: '.5s',};      
 
         setCSS(this, css);

@@ -88,6 +88,15 @@ export default class SignInPopup extends HTMLElement {
     process() {
         this.function(this.nameInput.value, this.passwordInput.value);
     }
+
+    display(isDisplayed) {
+        if(isDisplayed) {
+            setCSS(this, {display: 'flex'});
+        } else {
+            setCSS(this, {display: 'none'});
+        }
+    }
+    
 }
 
 customElements.define('sign-in-popup', SignInPopup);

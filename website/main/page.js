@@ -49,7 +49,9 @@ export default class Page {
     }
 
     processStatus(message) {
-        // TODO
+        if(message.code == 2001) {
+            this.SignInPopup.display(false);
+        }
     }
 
     processError(message) {
