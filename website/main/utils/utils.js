@@ -34,3 +34,21 @@ export default function setCSS(e, styles) {
     for (const property in styles)
         e.style[property] = styles[property];
 }
+
+export const centerPopup = {
+    position: 'fixed',    
+    top: '20%',
+    left: '40%',
+    right: '40%',
+    minWidth: '400px',
+
+    backgroundColor: 'white',
+
+    border: '3px solid black',
+    
+
+    padding: '30px',
+
+    justyfyContent: 'center',
+    alignItems: 'center',
+}
