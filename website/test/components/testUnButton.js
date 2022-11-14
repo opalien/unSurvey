@@ -1,5 +1,5 @@
-import UnButton from '/main/components/unButton.js';
-import { RedColors, BlueColors, GreenColors } from '/main/utils/utils.js';
+import UnButton from '/components/unButton.js';
+import { RedColors, BlueColors, GreenColors } from '/utils/utils.js';
 
 window.addEventListener('DOMContentLoaded', (event) => {
     test1UnButton();

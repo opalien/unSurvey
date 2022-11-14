@@ -1,4 +1,4 @@
-import UnCrossButton from "/main/components/unCrossButton.js";
+import UnCrossButton from "/components/unCrossButton.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     test1UnCrossButton();

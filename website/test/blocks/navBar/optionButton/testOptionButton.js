@@ -1,4 +1,4 @@
-import OptionButton from "/main/blocks/navBar/optionButton/optionButton.js";
+import OptionButton from "/blocks/navBar/optionButton/optionButton.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     test1OptionButton();

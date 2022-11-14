@@ -1,4 +1,4 @@
-import SignInPopup from "/main/blocks/signInPopup.js";
+import SignInPopup from "/blocks/signInPopup.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     test1SignInPopup();

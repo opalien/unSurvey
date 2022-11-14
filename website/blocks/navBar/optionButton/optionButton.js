@@ -1,4 +1,4 @@
-import setCSS from "../../../utils/utils.js";
+import setCSS from "/utils/utils.js";
 
 export default class OptionButton extends HTMLElement {
     constructor() {
@@ -7,9 +7,9 @@ export default class OptionButton extends HTMLElement {
         this.function = function(){};
 
         let image = document.createElement('img');
-        image.src = '/main/assets/settingsButton.png';
-        //image.src = '/assets/settingsButton.png';
+        image.src = '/assets/settingsButton.png';
         //image.src = '/main/blocks/navBar/optionButton/settings.png';
+        //image.src = '/main/assets/settingsButton.png';
 
         let cssimage = {
             width: '50px',

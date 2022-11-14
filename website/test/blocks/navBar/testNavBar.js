@@ -1,4 +1,4 @@
-import NavBar from "/main/blocks/navBar/navBar.js";
+import NavBar from "/blocks/navBar/navBar.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     test1NavBar();

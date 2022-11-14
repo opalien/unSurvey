@@ -1,4 +1,4 @@
-import setCSS from '../../utils/utils.js';
+import setCSS from '/utils/utils.js';
 
 
 

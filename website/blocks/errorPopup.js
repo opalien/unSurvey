@@ -1,6 +1,6 @@
-import setCSS from "../utils/utils.js";
+import setCSS from "/utils/utils.js";
 
-import UnCrossButton from "../components/unCrossButton.js";
+import UnCrossButton from "/components/unCrossButton.js";
 
 
 export default class ErrorPopup extends HTMLElement {

@@ -1,5 +1,5 @@
-import setCSS, {GreenColors} from "../utils/utils.js";
-import UnButton from "../components/unButton.js";
+import setCSS, {GreenColors} from "/utils/utils.js";
+import UnButton from "/components/unButton.js";
 
 export default class SignInPopup extends HTMLElement {
     constructor() {

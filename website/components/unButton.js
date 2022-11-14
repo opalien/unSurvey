@@ -1,11 +1,11 @@
-import setCSS from '../utils/utils.js';
+import setCSS from '/utils/utils.js';
 
 export default class UnButton extends HTMLElement {
 
     constructor(text, textColor, colors) {
         super();
 
-        this.active = true;
+        this.active = false;
 
         // setting the colors
         this.color = colors.color1;

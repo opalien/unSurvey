@@ -1,4 +1,4 @@
-import ErrorPopup from "/main/blocks/errorPopup.js";
+import ErrorPopup from "/blocks/errorPopup.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {
     test1ErrorPopup();
