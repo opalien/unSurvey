@@ -6,6 +6,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 function test1OptionButton() {
+    document.body.style.backgroundColor = '#63502C';
+
     let optionButton = new OptionButton();
     optionButton.id = 'idofsomethingreallystupid';
     document.body.appendChild(optionButton);

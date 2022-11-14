@@ -4,6 +4,9 @@ export default class UnButton extends HTMLElement {
 
     constructor(text, textColor, colors) {
         super();
+
+        this.active = true;
+
         // setting the colors
         this.color = colors.color1;
         this.hoverColor = colors.color2;
@@ -43,22 +46,28 @@ export default class UnButton extends HTMLElement {
     }
 
     setFunction(f) {
-        this.removeEventListener('click', this.function);
-        this.function = f;
-        this.addEventListener('click', this.function);
+        if(this.active) {
+            this.removeEventListener('click', this.function);
+            this.function = f;
+            this.addEventListener('click', this.function);        
+        } else {
+            this.function = f;
+        }
     }
 
     setActive(isActive) {
-        if(isActive) {
+        if(isActive && !this.active) {
             this.addEventListener('click', this.function);
             this.addEventListener('mouseover', this.mouseover);
             this.addEventListener('mouseout', this.mouseout);
             setCSS(this, {backgroundColor: this.color, cursor: 'pointer'});
-        } else {
+            this.active = true;
+        } else if(!isActive && this.active) {
             this.removeEventListener('click', this.function);
             this.removeEventListener('mouseover', this.mouseover);
             this.removeEventListener('mouseout', this.mouseout);
             setCSS(this, {backgroundColor: this.inactiveColor, cursor: 'auto'});
+            this.active = false;
         }
     }
 }
