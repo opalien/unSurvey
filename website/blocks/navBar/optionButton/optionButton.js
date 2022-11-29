@@ -8,8 +8,6 @@ export default class OptionButton extends HTMLElement {
 
         let image = document.createElement('img');
         image.src = '/assets/settingsButton.png';
-        //image.src = '/main/blocks/navBar/optionButton/settings.png';
-        //image.src = '/main/assets/settingsButton.png';
 
         let cssimage = {
             width: '50px',

@@ -1,5 +1,7 @@
 import setCSS from '/utils/utils.js';
 
+import OptionButton from './optionButton/optionButton.js';
+
 
 
 export default class NavBar extends HTMLElement {
@@ -18,8 +20,22 @@ export default class NavBar extends HTMLElement {
 
         setCSS(title, csstitle);
 
-
         this.appendChild(title);
+
+
+
+        this.OptionButton = new OptionButton();
+
+        let cssoptionbutton = {
+            position: 'absolute',
+            bottom: '30px',
+            left: '30px',
+        }
+
+        setCSS(this.OptionButton, cssoptionbutton);
+
+        this.appendChild(this.OptionButton);
+
 
         let css = {
             position: 'absolute',
@@ -30,7 +46,7 @@ export default class NavBar extends HTMLElement {
             borderRight: '3px solid black',
 
             backgroundColor: '#63502C',
-        }
+        };
 
         setCSS(this, css);
     }

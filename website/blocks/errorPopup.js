@@ -10,9 +10,11 @@ export default class ErrorPopup extends HTMLElement {
         this.closeButton = new UnCrossButton();
         this.closeButton.setFunction(this.hide.bind(this));
 
-        let csscrossbutton = {position: 'absolute',
-                                top: '15px',
-                                right: '50px',};
+        let csscrossbutton = {
+            position: 'absolute',
+            top: '15px',
+            right: '50px',
+        };
 
         setCSS(this.closeButton, csscrossbutton);
 
@@ -20,31 +22,37 @@ export default class ErrorPopup extends HTMLElement {
 
         this.errorTitle = document.createElement('h2');
         this.errorTitle.innerText = 'Error :';
-        let csserrorTitle = {position: 'absolute',
-                                bottom: '0px',
-                                left: '50px',
-                                color: 'white'};
+        let csserrorTitle = {
+            position: 'absolute',
+            bottom: '0px',
+            left: '50px',
+            color: 'white'
+        };
         setCSS(this.errorTitle, csserrorTitle);
         this.appendChild(this.errorTitle);
 
         this.errorText = document.createElement('h2');
         this.errorText.innerText = 'This is an error';
-        let csserrorText = {position: 'absolute',
-                                bottom: '0px',
-                                left: '200px',
-                                color: 'white'};
+        let csserrorText = {
+            position: 'absolute',
+            bottom: '0px',
+            left: '200px',
+            color: 'white'
+        };
         setCSS(this.errorText, csserrorText);
         this.appendChild(this.errorText);
 
-        let css = {position: 'fixed',
-                    bottom: '0px',
-                    left: '100px',
-                    right: '100px',
-                    height: '75px',
-                    backgroundColor: '#BD4E41',
-                    border: '3px solid black',
-                    borderBottom: 'none',
-                    transition: '.5s',};      
+        let css = {
+            position: 'fixed',
+            bottom: '0px',
+            left: '100px',
+            right: '100px',
+            height: '75px',
+            backgroundColor: '#BD4E41',
+            border: '3px solid black',
+            borderBottom: 'none',
+            transition: '.5s',
+        };      
 
         setCSS(this, css);
 
