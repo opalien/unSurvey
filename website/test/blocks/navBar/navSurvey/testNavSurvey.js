@@ -1,4 +1,4 @@
-import NavBar from "/blocks/navBar/navSurvey/navSurvey.js";
+import NavSurvey from "/blocks/navBar/navSurvey/navSurvey.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {
 
@@ -9,34 +9,38 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 function test1NavBar() {
 
-    let navBar = new NavBar();
+    let navBar = new NavSurvey();
     document.body.appendChild(navBar);
 }
 
 function testSetFolder() {
-    let navBar = new NavBar();
+    let navBar = new NavSurvey();
 
 
     let folders = [
         {
             name: 'folder1',
+            id: 0,
             surveys: [
-                { name: 'survey1',  },
-                { name: 'survey2',  }
+                { name: 'survey1', id: 5 },
+                { name: 'survey2', id: 6 }
             ]
         },
 
         {
             name: 'folder2',
+            id: 1,
             surveys: [
-                { name: 'survey3', },
-                { name: 'survey4', }
+                { name: 'survey3', id: 7 },
+                { name: 'survey4', id: 8 }
             ]
         }
     ]
 
     navBar.setFolder(folders);
     document.body.appendChild(navBar);
-
+    navBar.setFolder(folders);
+    navBar.setFolderFunction(function(id){console.log("La joi de pouvoir afficher l'ID : " + id)})
+    navBar.setSurveyFunction((id) => {console.log("blup blup :" + id)})
 
 }

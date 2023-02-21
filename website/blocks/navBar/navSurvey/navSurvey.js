@@ -4,33 +4,14 @@ export default class NavSurvey extends HTMLElement {
     constructor() {
         super();
 
-        /*this.innerHTML = 
-        '<ul>' +                      
-        '<li>' +
-            '<span class="arrow"></span><span class="head">ukraine folder</span>' +            
-            '<span class="body">' +
-                '<ul>' +
-                    '<li>la dépeche</li>' +
-                    '<li>le monde</li>' +
-                '</ul>' +
-            '</span>' +
-        '</li>' +
-        '<li>' +
-            '<span class="arrow"></span><span class="head">ukraine folder</span>' +            
-            '<span class="body">' +
-                '<ul>' +
-                    '<li>la dépeche</li>' +
-                    '<li>le monde</li>' +
-                '</ul>' +
-            '</span>' +
-        '</li>' +
-        '</ul>';*/
+        this.folderFunction = function(id){};
+        this.surveyFunction = function(id){};
 
         
 
         let css = {
             position: 'absolute',
-            //minWidth: '300px',
+            minWidth: '200px',
             //height: '100px',
             backgroundColor: '#FFE8BD',
             border: '3px solid black',
@@ -41,7 +22,10 @@ export default class NavSurvey extends HTMLElement {
         setCSS(this, css);
     }
 
+
+
     setFolder(folders) {
+        console.log(folders);
 
         delete(this.folders)
         this.deleteChildren();
@@ -55,10 +39,19 @@ export default class NavSurvey extends HTMLElement {
         for (let fi in this.folders) {
             let li = document.createElement('li');
             let span_arrow = document.createElement('span');
-            span_arrow.innerText = '>';
+            span_arrow.innerHTML = '&#x25BA';
             li.appendChild(span_arrow);
-            li.appendChild(document.createTextNode(this.folders[fi].name));
-            //li.innerText = this.folders[fi].name;
+            
+            let span_name = document.createElement('span');
+            span_name.innerText = this.folders[fi].name;
+            span_name.setAttribute('id', this.folders[fi].id);
+            span_name.style.cursor = 'pointer';
+
+            span_name.addEventListener('click', () => {
+                this.folderClicked(span_name.getAttribute('id'));
+            });
+
+            li.appendChild(span_name);
 
 
 
@@ -67,8 +60,17 @@ export default class NavSurvey extends HTMLElement {
 
             for(let si in this.folders[fi].surveys) {
                 let li = document.createElement('li');
-                li.innerText = this.folders[fi].surveys[si].name;
+                let span_name_si = document.createElement('span');
+                span_name_si.innerText = this.folders[fi].surveys[si].name;
+                span_name_si.setAttribute('id', this.folders[fi].surveys[si].id);
+                span_name_si.style.cursor = 'pointer';
 
+                span_name_si.addEventListener('click', () => {
+                    this.surveyClicked(span_name_si.getAttribute('id'))
+                })
+
+
+                li.appendChild(span_name_si);
                 ul.appendChild(li);
             }
 
@@ -80,6 +82,8 @@ export default class NavSurvey extends HTMLElement {
 
             let size = ul.children.length;
             ul.style.overflow = 'hidden';
+
+            ul.style.height = '0px';
 
             span_arrow.addEventListener('click', () => {
                 if (ul.style.height == '0px') {
@@ -95,22 +99,11 @@ export default class NavSurvey extends HTMLElement {
 
 
             li.appendChild(ul);
-
-
             main_ul.appendChild(li);
         
         }
 
         this.appendChild(main_ul);
-
-
-
-
-
-
-
-
-        this.folder = folders;
     }
 
 
@@ -118,6 +111,25 @@ export default class NavSurvey extends HTMLElement {
         while (this.lastChild) {
             delete(this.removeChild(this.lastChild));
         }
+    }
+
+
+    folderClicked(id) {
+        console.log(id);
+        this.folderFunction(id);
+    }
+
+    surveyClicked(id) {
+        console.log(id);
+        this.surveyFunction(id);
+    }
+
+    setFolderFunction(f) {
+        this.folderFunction = f;
+    }
+
+    setSurveyFunction(f) {
+        this.surveyFunction = f;
     }
 
     
