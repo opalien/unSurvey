@@ -1,4 +1,6 @@
-import setCSS  from "/utils/utils.js";
+import setCSS, {BrownColors} from "/utils/utils.js";
+
+import UnButton from "/components/unButton.js";
 
 export default class NavSurvey extends HTMLElement {
     constructor() {
@@ -7,8 +9,23 @@ export default class NavSurvey extends HTMLElement {
         this.folderFunction = function(id){};
         this.surveyFunction = function(id){};
 
+        this.addFunction = function(){};
+
         this.folder_div = document.createElement('div');
-        
+        this.appendChild(this.folder_div);
+
+        this.add_button = new UnButton('add new', '#63502c', BrownColors);
+        this.appendChild(this.add_button);
+        this.add_button.setFunction(this.buttonClicked.bind(this));
+
+        let buttoncss = {
+            position: 'relative',
+            marginLeft: '20px',
+            //marginTop:'50px',
+            //top:'20px'
+        };
+
+        setCSS(this.add_button, buttoncss);
 
         
 
@@ -19,9 +36,9 @@ export default class NavSurvey extends HTMLElement {
             backgroundColor: '#FFE8BD',
             border: '3px solid black',
             fontWeight: 'bold',
-        }
-
-
+            paddingBottom: '20px',
+            paddingTop: '20px',
+        };
 
         setCSS(this, css);
     }
@@ -109,24 +126,22 @@ export default class NavSurvey extends HTMLElement {
         
         }
 
-        this.appendChild(main_ul);
+        this.folder_div.appendChild(main_ul);
     }
 
 
     deleteChildren() {
-        while (this.lastChild) {
-            delete(this.removeChild(this.lastChild));
+        while (this.folder_div.lastChild) {
+            delete(this.folder_div.removeChild(this.folder_div.lastChild));
         }
     }
 
 
     folderClicked(id) {
-        console.log(id);
         this.folderFunction(id);
     }
 
     surveyClicked(id) {
-        console.log(id);
         this.surveyFunction(id);
     }
 
@@ -136,6 +151,15 @@ export default class NavSurvey extends HTMLElement {
 
     setSurveyFunction(f) {
         this.surveyFunction = f;
+    }
+
+
+    buttonClicked() {
+        this.addFunction();
+    }
+
+    setAddFunction(f) {
+        this.addFunction = f;
     }
 
     

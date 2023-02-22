@@ -32,6 +32,12 @@ export const BlueColors = {
     color3: '#172138',
 };
 
+export const BrownColors = {
+    color1: '#ffe8bd',
+    color2: '#ffe8bd',
+    color3: '#ffe8bd',
+}
+
 export default function setCSS(e, styles) {
     for (const property in styles)
         e.style[property] = styles[property];

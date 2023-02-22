@@ -65,6 +65,18 @@ export default class NavBar extends HTMLElement {
         setCSS(this, css);
     }
 
+    display(isDisplayed) {
+        if(isDisplayed) {
+            setCSS(this, {display: 'flex'});
+        } else {
+            setCSS(this, {display: 'none'});
+        }
+    }
+
+    setFolders(folders) {
+        this.navSurvey.setFolder(folders);
+    }
+
 
 }
 

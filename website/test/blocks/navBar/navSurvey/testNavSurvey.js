@@ -42,5 +42,6 @@ function testSetFolder() {
     navBar.setFolder(folders);
     navBar.setFolderFunction(function(id){console.log("La joi de pouvoir afficher l'ID : " + id)})
     navBar.setSurveyFunction((id) => {console.log("blup blup :" + id)})
+    navBar.setAddFunction(function(){console.log("bouton pressé !")})
 
 }
