@@ -7,6 +7,9 @@ export default class NavSurvey extends HTMLElement {
         this.folderFunction = function(id){};
         this.surveyFunction = function(id){};
 
+        this.folder_div = document.createElement('div');
+        
+
         
 
         let css = {
@@ -15,6 +18,7 @@ export default class NavSurvey extends HTMLElement {
             //height: '100px',
             backgroundColor: '#FFE8BD',
             border: '3px solid black',
+            fontWeight: 'bold',
         }
 
 
@@ -57,6 +61,7 @@ export default class NavSurvey extends HTMLElement {
 
             let ul = document.createElement('ul');
             
+            
 
             for(let si in this.folders[fi].surveys) {
                 let li = document.createElement('li');
@@ -79,6 +84,7 @@ export default class NavSurvey extends HTMLElement {
             span_arrow.style.display = 'inline-block';
 
             ul.style.transition = '.5s';
+            ul.style.listStyle='none';
 
             let size = ul.children.length;
             ul.style.overflow = 'hidden';

@@ -1,6 +1,7 @@
 import setCSS from '/utils/utils.js';
 
 import OptionButton from './optionButton/optionButton.js';
+import NavSurvey from './navSurvey/navSurvey.js';
 
 
 
@@ -10,6 +11,7 @@ export default class NavBar extends HTMLElement {
 
 
         let title = document.createElement('h1');
+
         title.innerHTML = 'unSurvey';
         let csstitle = {
             position: 'absolute',
@@ -19,22 +21,34 @@ export default class NavBar extends HTMLElement {
         };
 
         setCSS(title, csstitle);
-
         this.appendChild(title);
 
 
 
-        this.OptionButton = new OptionButton();
+        this.optionButton = new OptionButton();
 
         let cssoptionbutton = {
             position: 'absolute',
             bottom: '30px',
             left: '30px',
-        }
+        };
 
-        setCSS(this.OptionButton, cssoptionbutton);
+        setCSS(this.optionButton, cssoptionbutton);
+        this.appendChild(this.optionButton);
 
-        this.appendChild(this.OptionButton);
+
+        this.navSurvey = new NavSurvey();
+
+        let cssnavsurvey = {
+            position: 'absolute',
+            left:'30px',
+            top:'30%'
+        };
+
+        setCSS(this.navSurvey, cssnavsurvey);
+        this.appendChild(this.navSurvey);
+
+        
 
 
         let css = {
