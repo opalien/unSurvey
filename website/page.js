@@ -4,6 +4,7 @@ import is_in from './utils/jsonCommunication.js';
 import ErrorPopup from './blocks/errorPopup.js'
 import SignInPopup from './blocks/signInPopup.js';
 import NavBar from './blocks/navBar/navBar.js';
+import AddFolderPopup from './blocks/addFolderPopup.js';
 
 export default class Page {
     constructor(host) {
@@ -20,6 +21,14 @@ export default class Page {
         this.navBar = new NavBar();
         this.navBar.display(false);
         document.body.appendChild(this.navBar);
+
+        this.addFolderPopup = new AddFolderPopup();
+        this.addFolderPopup.display(false);
+        document.body.appendChild(this.addFolderPopup);
+        this.addFolderPopup.setFunction(this.addFolder.bind(this))
+        //
+        this.navBar.navSurvey.setAddFunction(this.addFolderPopup.display.bind(this.addFolderPopup, true));
+
 
         this.SignInPopup = new SignInPopup();
         this.SignInPopup.setFunction(this.signIn.bind(this));
@@ -66,7 +75,8 @@ export default class Page {
             this.SignInPopup.display(false);
             this.getServerTree();
             this.navBar.display(true);
-
+        } else if(message.code == 2008) {
+            this.getServerTree();
         }
     }
 
@@ -81,6 +91,17 @@ export default class Page {
 
     getServerTree() {
         var to_send = { "command" : "get_tree" };
+        this.send(to_send);
+    }
+
+    addFolder(name) {
+        var to_send = {
+            command: "add_folder",
+            folder: {
+                name: name,
+            },
+        };
+
         this.send(to_send);
     }
 }
