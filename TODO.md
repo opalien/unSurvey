@@ -1,0 +1,3 @@
+folderArticle
+surveysArticle
+surveyPopup

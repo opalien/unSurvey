@@ -26,7 +26,7 @@ export default class Page {
         this.addFolderPopup.display(false);
         document.body.appendChild(this.addFolderPopup);
         this.addFolderPopup.setFunction(this.addFolder.bind(this))
-        //
+
         this.navBar.navSurvey.setAddFunction(this.addFolderPopup.display.bind(this.addFolderPopup, true));
 
 
@@ -36,11 +36,11 @@ export default class Page {
 
 
         this.errorPopup = new ErrorPopup();
-        document.body.appendChild(this.errorPopup);       
+        document.body.appendChild(this.errorPopup);
     }
 
     setConnectedblocks(enable) {
-
+        this.navBar.display(enable);
     }
 
     signIn(name, password) {
@@ -57,13 +57,13 @@ export default class Page {
     }
 
     receive(event) {
-        
+
         let message = JSON.parse(event.data);
         console.log(message);
 
         if(is_in(message, 'status', 'string')) {
             this.processStatus(message);
-        } else if(is_in(message, 'error', 'string')) {            
+        } else if(is_in(message, 'error', 'string')) {
             this.processError(message);
         } else if(is_in(message, 'user', 'object')) {
             this.refreshTree(message);
@@ -73,8 +73,8 @@ export default class Page {
     processStatus(message) {
         if(message.code == 2001) {
             this.SignInPopup.display(false);
+            this.setConnectedblocks(true);
             this.getServerTree();
-            this.navBar.display(true);
         } else if(message.code == 2008) {
             this.getServerTree();
         }
